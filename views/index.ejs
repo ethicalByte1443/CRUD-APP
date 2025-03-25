@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Web Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            font-family: 'Inter', sans-serif;
+        }
+        .dropdown-menu { transition: all 0.3s ease; }
+        .form-container {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="text-4xl font-bold">CRUD Web Application</h1>
+            <p class="mt-2 text-lg">Manage users easily with a simple and responsive interface.</p>
+        </div>
+
+        <div class="card bg-white text-black shadow rounded-lg mx-auto p-5 max-w-lg">
+            <div class="mb-3">
+                <label for="crudActions" class="form-label">Choose an Operation</label>
+                <select id="crudActions" class="form-select" onchange="navigateToRoute()">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="/create">Create User</option>
+                    <option value="/read">Read Users</option>
+                    <option value="/update">Update User</option>
+                    <option value="/delete">Delete User</option>
+                </select>
+            </div>
+
+            <div class="form-container mt-5">
+                <div id="dynamicContent">
+                    <p class="text-center">Select an operation from the dropdown above to proceed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function navigateToRoute() {
+            const selectedOption = document.getElementById("crudActions").value;
+            if (selectedOption) {
+                window.location.href = selectedOption;
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
